@@ -8,9 +8,15 @@ const User = db.define("user", {
   role: { type: DataTypes.STRING, defaultValue: "USER" }
 })
 
+const Chapter = db.define("chapter", {
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  name: { type: DataTypes.STRING },
+})
+
 const Lesson = db.define("lesson", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.STRING },
+  chapterId: { type: DataTypes.INTEGER, allowNull: false }
 })
 
 const Question = db.define("question", {
@@ -23,7 +29,27 @@ const Question = db.define("question", {
 
 const UserProgress = db.define("userprogress", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  progress: { type: DataTypes.INTEGER, defaultValue: 0 },
   userId: { type: DataTypes.INTEGER, allowNull: false },
-  questionId: { type: DataTypes.INTEGER, allowNull: false },
-  progress: { type: DataTypes.INTEGER, defaultValue: 0 }
+  questionId: { type: DataTypes.INTEGER, allowNull: false }
 })
+
+Chapter.hasMany(Lesson)
+Lesson.belongsTo(Chapter)
+
+Lesson.hasMany(Question)
+Question.belongsTo(Lesson)
+
+UserProgress.hasMany(UserProgress)
+UserProgress.belongsTo(User)
+
+Question.hasMany(UserProgress)
+UserProgress.belongsTo(Question)
+
+module.exports = {
+  User,
+  Chapter,
+  Lesson,
+  Question,
+  UserProgress
+}
