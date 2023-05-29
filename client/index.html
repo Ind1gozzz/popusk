@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles.css" />
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class='app' id="app" >
+        <lessons-list id="lesson-list" :authorized="authorized" @open-lesson="getNewContent" :lessons="lessons"></lessons-list>   
+        <nav-bar @show-log="login" @show-reg="register" :authorized="authorized"></nav-bar>
+        <login-form @authorization="authorization" :show="log"></login-form>
+        <registration-form @registration="authorization" :show="reg"></registration-form>
+        <content id="content" :authorized="authorized" v-bind="contentBlock"></content>    
+        <task-block-text v-if="textTask" id="task-block" :authorized="authorized" v-bind="taskBlock" @complete-lesson="completeLesson"></task-block-text> 
+        <task-block v-else id="task-block" :authorized="authorized" v-bind="taskBlock" @complete-lesson="completeLesson"></task-block> 
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./components/Lesson.js"></script>
+    <script src="./components/Login.js"></script>
+    <script src="./components/Registration.js"></script>
+    <script src="./components/NavBar.js"></script>
+    <script src="./components/Chapter.js"></script>
+    <script src="./components/LessonsList.js"></script>
+    <script src="./components/Content.js"></script>
+    <script src="./components/TaskBlock.js"></script>
+    <script src="./components/TaskBlockText.js"></script>
+
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+</html>

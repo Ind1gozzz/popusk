@@ -1,0 +1,113 @@
+.nav-bar {
+    background: linear-gradient(-90deg, #ffbb00, #ff9100);
+    height: 10%;
+    margin-bottom: 25px;
+    -webkit-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 2px 15px -12px rgba(0, 0, 0, 0.57);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.57);   
+    text-align: right;
+    width: 100%;  
+    border: solid;
+    border-radius: 5px;
+}
+
+.app {
+    text-align: center;
+}
+
+.content-block {
+    margin-left: 15%;
+    text-align: center;
+    border-bottom: solid;
+    border-width: 2px;
+}
+
+.lesson {
+    text-align: center;
+    font-size: smaller;
+    margin-bottom: 5px;   
+}
+
+.chapter {
+    text-align: center;
+    margin-bottom: 10px;    
+}
+
+.title-text {
+    text-align: center; 
+    font-size: medium;
+}
+
+.chapters-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 75%;
+ 
+}
+
+.lessons-list {
+    width: 100%;
+    padding: 0;
+}
+
+.lessons-block {
+    background: linear-gradient(to top,  #ffbb00, #ff9100);
+    border: solid;
+    height: 90%;
+    margin-top: 70px;
+    border-radius: 5px;
+    width: 15%;
+    position: fixed;   
+    overflow-y: scroll;  
+}
+
+.task-block {
+    margin-left: 15%;
+    text-align: center;
+}
+
+.chapter-text-button {
+    color: black;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.lesson-text-button {
+    color: black;
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    font-size: small;
+}
+
+.lesson-text-button:hover {
+    color: black;
+    background-color: rgba(219, 219, 219, 0.4);
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    font-size: small;
+}
+
+.nav-button {
+    color: black;
+    background:none;
+    border:none;
+    cursor: pointer;
+    font-size: medium;
+    padding: 20px;
+}
+
+body {
+    background-color: rgb(240, 238, 238);
+}
