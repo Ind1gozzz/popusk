@@ -3,7 +3,7 @@ const pg = require("pg")
 const db = require("./db")
 const learndb = require("./learndb")
 const config = require("./config/default")
-
+const models = require("./models")
 
 const app = express()
 app.use(express.json())
@@ -11,9 +11,9 @@ app.use(express.json())
 async function start() {
   try {
     await db.authenticate()
-    await db.sync()
-    await learndb.authenticate()
-    await learndb.sync()
+    // await db.sync()
+    // await learndb.authenticate()
+    // await learndb.sync()
     app.listen(config.PORT, function () {
       console.log(`Server has been started at ${config.PORT}`)
     })
