@@ -14,10 +14,10 @@ router.post("/registration", async function (req, res) {
 router.post("/authorization", async function (req, req) {
   const { email, password } = req.body
   const userCandidate = await User.findOne({ where: { email } })
-  if (!user) {
+  if (!userCandidate) {
     return "User not found"
   }
-  let comparePassword = bcrypt.compareSync(password, user.password)
+  let comparePassword = bcrypt.compareSync(password, userCandidate.password)
   if (comparePassword) {
     const token = generateJwt(user.id, user.email)
     return res.json(token)
