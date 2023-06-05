@@ -4,9 +4,12 @@ const db = require("./db")
 const learndb = require("./learndb")
 const config = require("./config/default")
 const models = require("./models")
+const router = require("./routes/index")
 
 const app = express()
 app.use(express.json())
+app.use(cors())
+app.use("/api", router)
 
 async function start() {
   try {
