@@ -6,6 +6,10 @@ const router = Router()
 
 router.post("/registration", async function (req, res) {
   const { email, password } = req.body
+  const userCandidate = await User.findOne({ where: { email } })
+  if (userCandidate) {
+    return "User already exists"
+  }
   const hashPass = await bcrypt.hash(password, 12)
   const user = await User.create({ email, hashPass })
   return res.json(user)
