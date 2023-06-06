@@ -1,5 +1,4 @@
 const { Router } = require("express")
-const Router = require("express")
 const { Question, UserProgress } = require("../models")
 
 const router = Router()
@@ -15,3 +14,5 @@ router.post("/updateResult", async function (req, res) {
   const userprogress = await UserProgress.insertOrUpdate({ progress: userProgress, userId: userId, where: { questionId } })
   return res.json(userprogress)
 })
+
+module.exports = router
