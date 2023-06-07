@@ -15,4 +15,12 @@ router.post("/updateResult", async function (req, res) {
   return res.json(userprogress)
 })
 
+router.post("updateUserResult", async function(req, res) {
+  const { userAnswer, userId, lessonId } = req.body
+  const correctAnswer = await Question.findOne({where: { lessonId: lessonId } })
+  const result = userAnswer == correctAnswer.answer ? 1 : 0
+  const updateResult = await UserProgress.insertOrUpdate({ progress: result, userId: userId, where: { questionId: correctAnswer.questionId } })
+  return res.json(updateResult)
+})
+
 module.exports = router
