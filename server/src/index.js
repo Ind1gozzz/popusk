@@ -16,7 +16,7 @@ app.use("/api", router)
 async function start() {
   try {
     await db.authenticate()
-    await db.sync()
+    // await db.sync()
     // await learndb.authenticate()
     // await learndb.sync()
     app.listen(config.PORT, function () {
