@@ -6,7 +6,7 @@ const config = {
   MAIN_DB_NAME: "course",
   MAIN_DB_PASSWORD: "123",
   LEARNING_DB_NAME: "learndb",
-  LEARNING_DB_PASSWORD: 123,
+  LEARNING_DB_PASSWORD: "123",
   SECRET_KEY: "AWse;jgg34934gl12knAWFPoi40twlkn2@"
 }
 

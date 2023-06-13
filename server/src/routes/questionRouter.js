@@ -25,13 +25,18 @@ router.post("updateUserResult", async function (req, res) {
 })
 
 router.post("checkquestion", async function (req, res) {
-  const { userAnswer, questionId } = req.body
-  const { trueAnswer } = await Question.findOne({ where: { id: questionId } })
-  const query = await learndb.query($`{userAnswer}`)
+  const { userAnswer, questionId, userId } = req.body
+  const answerFromDb = await Question.findAll({ where: { id: questionId } })
+  const trueAnswer = answerFromDb[0].answer
+  const query = await learndb.query(`${userAnswer}`)
   const trueQuery = await learndb.query(`${trueAnswer}`)
   if (query[0][0] == trueQuery[0][0]) {
+    const updateResult = await UserProgress.insertOrUpdate({ progress: 1, userId: userId, where: { questionId: questionId } })
+    console.log(updateResult)
     return res.json("True")
   } else {
+    const updateResult = await UserProgress.insertOrUpdate({ progress: 0, userId: userId, where: { questionId: questionId } })
+    console.log(updateResult)
     return res.json("False")
   }
 })

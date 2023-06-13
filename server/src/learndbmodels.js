@@ -9,26 +9,26 @@ const Goods_wh = learndb.define("goods_wh", {
 })
 
 const Goods = learndb.define("goods", {
-  id_goods: { type: DataTypes.INTEGER, rimaryKey: true, autoIncrement: true },
+  id_goods: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   nomenclature: { type: DataTypes.CHAR },
   measure: { type: DataTypes.CHAR }
 })
 
 const Warehouse = learndb.define("warehouse", {
-  id_wh: { type: DataTypes.INTEGER, rimaryKey: true, autoIncrement: true },
+  id_wh: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name: { type: DataTypes.CHAR },
   town: { type: DataTypes.CHAR }
 })
 
 const Agent = learndb.define("agent", {
-  id_ag: { type: DataTypes.INTEGER, rimaryKey: true, autoIncrement: true },
+  id_ag: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   name_ag: { type: DataTypes.CHAR },
   town: { type: DataTypes.CHAR },
   phone: { type: DataTypes.CHAR }
 })
 
 const Operation = learndb.define("operation", {
-  id: { type: DataTypes.INTEGER, rimaryKey: true, autoIncrement: true },
+  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   typeof: { type: DataTypes.CHAR },
   quantity: { type: DataTypes.NUMBER },
   price: { type: DataTypes.NUMBER },

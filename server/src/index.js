@@ -5,6 +5,7 @@ const db = require("./db")
 const learndb = require("./learndb")
 const config = require("./config/default")
 const models = require("./models")
+const learndbmodels = require("./learndbmodels")
 const router = require("./routes/index")
 const cresteUsers = require("./createUsers")
 
@@ -16,7 +17,7 @@ app.use("/api", router)
 async function start() {
   try {
     await db.authenticate()
-    // await db.sync()
+    await db.sync()
     // await learndb.authenticate()
     // await learndb.sync()
     app.listen(config.PORT, function () {
