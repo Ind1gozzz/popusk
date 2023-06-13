@@ -16,7 +16,7 @@ router.post("/updateResult", async function (req, res) {
   return res.json(userprogress)
 })
 
-router.post("updateUserResult", async function (req, res) {
+router.post("/updateUserResult", async function (req, res) {
   const { userAnswer, userId, lessonId } = req.body
   const correctAnswer = await Question.findOne({ where: { lessonId: lessonId } })
   const result = userAnswer == correctAnswer.answer ? 1 : 0
@@ -24,7 +24,7 @@ router.post("updateUserResult", async function (req, res) {
   return res.json(updateResult)
 })
 
-router.post("checkquestion", async function (req, res) {
+router.post("/checkquestion", async function (req, res) {
   const { userAnswer, questionId, userId } = req.body
   const answerFromDb = await Question.findAll({ where: { id: questionId } })
   const trueAnswer = answerFromDb[0].answer
